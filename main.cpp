@@ -123,8 +123,29 @@ void viewSessionReport() {
 
     file.close();
 }
+void generateSampleStudents() {
+    ifstream file("students.txt");
+
+    // If file already has content, do nothing
+    if (file.peek() != ifstream::traits_type::eof()) {
+        file.close();
+        return;
+    }
+
+    file.close();
+
+    students.push_back({"EE2001", "Kwame Mensah"});
+    students.push_back({"EE2002", "Ama Boateng"});
+    students.push_back({"EE2003", "Kofi Asare"});
+    students.push_back({"EE2004", "Yaw Owusu"});
+    students.push_back({"EE2005", "Akosua Antwi"});
+
+    saveStudents();
+}
 
 int main() {
+    loadStudents();
+    generateSampleStudents();
     loadStudents();
     int choice;
 
